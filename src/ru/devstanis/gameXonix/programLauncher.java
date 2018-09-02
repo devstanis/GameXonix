@@ -14,7 +14,8 @@ public class programLauncher
         jf.setVisible(true);
         GameObject[] gameObjects =
                 {
-                        new Field()
+                        new Field(),
+                        new Ball(Options.FIELD_WIDTH/2, Options.FIELD_HEGHT/2)
                 };
         jf.add(new Game(gameObjects));
     }

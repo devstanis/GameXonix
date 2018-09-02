@@ -28,7 +28,7 @@ public class Field extends GameObject
     void paintBorder(Graphics2D g)
     {
         g.setColor(Color.black);
-        g.fillRect(0,0,fieldWidth,fieldHeght);
+        g.fillRect(dx,dy,fieldWidth,fieldHeght);
 
         g.setColor(Color.green);
         g.drawRect(dx, dy, fieldWidth - dx*2, fieldHeght - dy*2);
