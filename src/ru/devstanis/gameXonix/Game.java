@@ -1,8 +1,9 @@
 package ru.devstanis.gameXonix;
 
+import javax.swing.*;
 import java.awt.*;
 
-public class Game extends Panel
+class Game extends JPanel
 {
     GameObject[] gameObjects;
 

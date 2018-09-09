@@ -12,6 +12,7 @@ public class programLauncher
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jf.setLocationRelativeTo(null);//center window
         jf.setVisible(true);
+
         GameObject[] gameObjects =
                 {
                         new Field(),
