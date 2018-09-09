@@ -12,6 +12,23 @@ class Game extends JPanel
         this.gameObjects = objects;
     }
 
+    public void go()
+    {
+        while(true)
+        {
+            for (GameObject go : gameObjects)
+            {
+                go.move();
+                this.repaint();
+            }
+        }
+    }
+
+    void move()
+    {
+
+    }
+
     @Override
     public void paint(Graphics g)
     {
