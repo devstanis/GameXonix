@@ -28,13 +28,11 @@ public class Ball extends GameObject
     @Override
     public void move()
     {
-        if(x+r >= game.fieldCoord[2])
-        {
-            dx *= -1;
-        }
+        if(x+r >= game.fieldCoord[2]) dx *= -1;
         if(x - r <= game.fieldCoord[0]) dx *= -1;
         if(y - r <= game.fieldCoord[1]) dy *= -1;
-        if(y >= game.fieldCoord[3]) dy *= -1;
+        if(y +r >= game.fieldCoord[3]) dy *= -1;
+
         x += dx;
         y += dy;
     }

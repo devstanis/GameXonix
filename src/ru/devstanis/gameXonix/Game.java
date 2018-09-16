@@ -12,8 +12,8 @@ class Game extends JPanel
     {
         fieldCoord = new int[]{Options.FIELD_WIDTH / Options.BORDER_KOEFF,//x1
                           Options.FIELD_HEGHT / Options.BORDER_KOEFF,//y1
-        Options.FIELD_WIDTH - (Options.FIELD_WIDTH / Options.BORDER_KOEFF)*2,//x2
-        Options.FIELD_HEGHT - (Options.FIELD_HEGHT / Options.BORDER_KOEFF)*2};//y2
+        Options.FIELD_WIDTH - (Options.FIELD_WIDTH / Options.BORDER_KOEFF),//x2
+        Options.FIELD_HEGHT - (Options.FIELD_HEGHT / Options.BORDER_KOEFF)};//y2
     }
 
     public void addGameObjects(GameObject...objects)
@@ -33,8 +33,8 @@ class Game extends JPanel
             for (GameObject go : gameObjects)
             {
                 go.move();
-                Delay.wait(Options.SHOW_DELAY);
                 this.repaint();
+                Delay.wait(Options.SHOW_DELAY);
             }
         }
     }
