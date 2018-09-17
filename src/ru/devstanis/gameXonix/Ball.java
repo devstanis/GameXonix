@@ -36,4 +36,9 @@ public class Ball extends GameObject
         x += dx;
         y += dy;
     }
+
+    @Override
+    public boolean isInRange(int x, int y) {
+        return false;
+    }
 }

@@ -28,6 +28,12 @@ public class Field extends GameObject
 
     }
 
+    @Override
+    public boolean isInRange(int x, int y)
+    {
+        return false;
+    }
+
     void paintBorder(Graphics2D g)
     {
         g.setColor(Color.black);
