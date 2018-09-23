@@ -38,7 +38,11 @@ public class Ball extends GameObject
     }
 
     @Override
-    public boolean isInRange(int x, int y) {
+    public boolean isInRange(int _x, int _y)
+    {
+        if(_x >= x - r && _x <= x + r||
+        _y >= y -r && _y <= y + r)
+                return  true;
         return false;
     }
 }

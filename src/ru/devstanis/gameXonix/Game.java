@@ -23,6 +23,7 @@ class Game extends JPanel
 
     public void startGame()
     {
+
         go();
     }
 
