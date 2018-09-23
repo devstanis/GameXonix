@@ -9,6 +9,7 @@ class Game extends JPanel
     Field field;
     ArrayList <GameObject> gameObjects;
     int[] fieldCoord;
+    int fieldWidth, fieldHeght, x1, y1, frameWidth, frameHeight;
 
     public Game()
     {
@@ -16,6 +17,12 @@ class Game extends JPanel
                           Options.FIELD_HEGHT / Options.BORDER_KOEFF,//y1
         Options.FIELD_WIDTH - (Options.FIELD_WIDTH / Options.BORDER_KOEFF),//x2
         Options.FIELD_HEGHT - (Options.FIELD_HEGHT / Options.BORDER_KOEFF)};//y2
+        frameWidth = Options.FIELD_WIDTH;
+        frameHeight = Options.FIELD_HEGHT;
+        fieldWidth = Options.FIELD_WIDTH - (Options.FIELD_WIDTH / Options.BORDER_KOEFF)*2;
+        fieldHeght = Options.FIELD_HEGHT -(Options.FIELD_HEGHT / Options.BORDER_KOEFF)*2;
+        x1 = fieldCoord[0];
+        y1 = fieldCoord[1];
     }
 
     public void addGameObjects(Field _field, ArrayList<GameObject> objects)
@@ -56,7 +63,15 @@ class Game extends JPanel
             for (int j = i+1; j < gameObjects.size(); j++)
             {
                 if(gameObjects.get(i).checkCross(gameObjects.get(j)))
+                {
+                    GameObject go1 = gameObjects.get(i);
+                    GameObject go2 = gameObjects.get(j);
+
+                    gameObjects.remove(go1);
+                    gameObjects.remove(go2);
                     gameObjects.add(getRandomBall());
+                    gameObjects.add(getRandomBall());
+                }
             }
     }
 
@@ -72,11 +87,11 @@ class Game extends JPanel
 
     public Ball getRandomBall()
     {
-        int _x = Utils.getRandom(Options.FIELD_WIDTH - (Options.FIELD_WIDTH / Options.BORDER_KOEFF)*2);
-        int _y = Utils.getRandom(Options.FIELD_HEGHT -(Options.FIELD_HEGHT / Options.BORDER_KOEFF)*2);
-        int _r = Utils.getRandom(Options.MAX_BALL_RADIUS);
-        int _dx = Utils.getRandom(Options.MAX_BALL_SPEED) * Utils.getRandomBool();
-        int _dy = Utils.getRandom(Options.MAX_BALL_SPEED) * Utils.getRandomBool();
+        int _r = Utils.getRandom(Options.MIN_BALL_RADIUS, Options.MAX_BALL_RADIUS);
+        int _x = Utils.getRandom(x1+ _r, x1 + fieldWidth -_r);
+        int _y = Utils.getRandom(y1+ _r, y1 + fieldHeght -_r);
+        int _dx = Utils.getRandom(Options.MIN_BALL_SPEED, Options.MAX_BALL_SPEED) * Utils.getRandomBool();
+        int _dy = Utils.getRandom(Options.MIN_BALL_SPEED, Options.MAX_BALL_SPEED) * Utils.getRandomBool();
         Color _color = Utils.getRandomColor();
         return new Ball(this,_x, _y, _r, _dx, _dy,_color);
     }

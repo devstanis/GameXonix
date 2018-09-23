@@ -5,6 +5,7 @@ import java.util.Random;
 
 public class Utils
 {
+    static Random rnd = new Random();
     static int getDistance(GameObject go1, GameObject go2)
     {
         double xx = Math.abs(go1.x - go2.x);
@@ -12,9 +13,10 @@ public class Utils
         return  (int) Math.sqrt(xx*xx + yy*yy);
     }
 
-    static int getRandom(int max)
+    static int getRandom(int min, int max)
     {
-        return (int)Math.random()* max;
+        //return (int)(Math.random()* max);
+        return min + rnd.nextInt(max - min);
     }
 
     static int getRandomBool()
@@ -24,6 +26,6 @@ public class Utils
 
     static Color getRandomColor()
     {
-        return new Color(getRandom(255), getRandom(255), getRandom(255));
+        return new Color(getRandom(0, 256), getRandom(0, 256), getRandom(0, 256));
     }
 }
