@@ -1,4 +1,4 @@
-package ru.devstanis.gameXonix;
+package ru.devstanis.Balls;
 
 public class Delay
 {

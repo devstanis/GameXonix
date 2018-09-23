@@ -1,10 +1,9 @@
-package ru.devstanis.gameXonix;
+package ru.devstanis.Balls;
 
 import java.awt.*;
 
 public class Ball extends GameObject
 {
-    int x, y, r, dx, dy;
 
     public Ball(Game _g, int _x, int _y, int _r, int _dx, int _dy, Color _c)
     {
@@ -38,11 +37,11 @@ public class Ball extends GameObject
     }
 
     @Override
-    public boolean isInRange(int _x, int _y)
+    public boolean checkCross(GameObject go)
     {
-        if(_x >= x - r && _x <= x + r||
-        _y >= y -r && _y <= y + r)
-                return  true;
-        return false;
+        int dr = this.r + go.r;
+        return Utils.getDistance(this, go) < dr;
     }
+
+
 }

@@ -1,4 +1,4 @@
-package ru.devstanis.gameXonix;
+package ru.devstanis.Balls;
 
 import java.awt.*;
 
@@ -26,14 +26,10 @@ public class Field extends GameObject
     @Override
     public void move()
     {
-
     }
 
     @Override
-    public boolean isInRange(int _x, int _y)
-    {
-        if((_x <= x1 || _x>= x1 + frameWidth )|| (_y <= y1 || _y >= y1+frameHeight))
-            return true;
+    public boolean checkCross(GameObject go) {
         return false;
     }
 
